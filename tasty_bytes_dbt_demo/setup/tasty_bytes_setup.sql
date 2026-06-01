@@ -28,7 +28,7 @@ USE ROLE ACCOUNTADMIN;
 -- Alternatively, you can use an existing warehouse in your account.
 -- =============================================================================
 
---CREATE WAREHOUSE tasty_bytes_dbt_wh WAREHOUSE_SIZE = XLARGE;
+CREATE WAREHOUSE IF NOT EXISTS tasty_bytes_dbt_wh WAREHOUSE_SIZE = XLARGE;
 
 -- =============================================================================
 -- STEP 2: Create a database and schemas for integrations and model materializations
@@ -37,13 +37,13 @@ USE ROLE ACCOUNTADMIN;
 -- The RAW schema holds the Tasty Bytes foundational source data.
 -- =============================================================================
 
--- CREATE DATABASE IF NOT EXISTS tasty_bytes_dbt_db;
--- CREATE SCHEMA IF NOT EXISTS tasty_bytes_dbt_db.dev;
--- CREATE SCHEMA IF NOT EXISTS tasty_bytes_dbt_db.prod;
--- -- Used for storing objects Snowflake needs for GitHub integration (secrets, etc.)
--- CREATE SCHEMA IF NOT EXISTS tasty_bytes_dbt_db.integrations;
--- -- Used for the Tasty Bytes foundational source data loaded from S3
---CREATE SCHEMA IF NOT EXISTS tasty_bytes_dbt_db.raw;
+CREATE DATABASE IF NOT EXISTS tasty_bytes_dbt_db;
+CREATE SCHEMA IF NOT EXISTS tasty_bytes_dbt_db.dev;
+CREATE SCHEMA IF NOT EXISTS tasty_bytes_dbt_db.prod;
+-- Used for storing objects Snowflake needs for GitHub integration (secrets, etc.)
+CREATE SCHEMA IF NOT EXISTS tasty_bytes_dbt_db.integrations;
+-- Used for the Tasty Bytes foundational source data loaded from S3
+CREATE SCHEMA IF NOT EXISTS tasty_bytes_dbt_db.raw;
 
 -- =============================================================================
 -- STEP 3: Enable logging, tracing, and metrics
