@@ -1,0 +1,14 @@
+target/
+dbt_modules/
+dbt_packages/
+logs/
+
+venv/
+.vscode/
+*.envrc*
+
+# Credentials and private keys
+*.p8
+*.pem
+*.pub
+bigquery-service-key.json

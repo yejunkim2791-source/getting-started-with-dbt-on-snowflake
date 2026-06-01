@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: profile_where_clause
+    columns:
+      - name: row_count
+        tests:
+          - dbt_utils.expression_is_true:
+              config:
+                enabled: "{{ target.type != 'sqlserver' }}"
+              arguments:
+                expression: "= 2"

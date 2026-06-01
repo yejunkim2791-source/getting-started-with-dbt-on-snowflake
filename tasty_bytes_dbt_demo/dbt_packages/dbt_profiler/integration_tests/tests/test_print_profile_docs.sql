@@ -1,0 +1,14 @@
+{% set _ = ref('test_data_default') %}
+{% if execute %}
+
+  {% do dbt_profiler.print_profile_docs(relation_name="test_data_default") %}
+
+  -- Test passes if no exceptions are raised from the macro call (the actual output is not tested)
+  {% set is_pass = True %}
+  {% if not is_pass %}
+    select 'fail' as result
+  {% else %}
+    select 'ok' as result from (select 1 as _dummy) _t where 1=0
+  {% endif %}
+
+{% endif %}
